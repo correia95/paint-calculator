@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#c2410c" />
+
+    <title>Paint Calculator — how much paint do I need for a room?</title>
+    <meta
+      name="description"
+      content="Work out how many litres and tins of paint you need for a room or wall. Enter the dimensions, subtract doors and windows, choose coats and coverage, and get the litres, number of tins and cost. Metric, free, runs in your browser."
+    />
+    <link rel="canonical" href="https://paint-calculator.correia95.workers.dev/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Paint Calculator" />
+    <meta property="og:description" content="How much paint do I need? Litres, tins and cost for a room or wall, after doors and windows and coats." />
+    <meta property="og:url" content="https://paint-calculator.correia95.workers.dev/" />
+    <meta property="og:image" content="https://paint-calculator.correia95.workers.dev/og.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Paint Calculator" />
+    <meta name="twitter:description" content="How much paint do I need? Litres, tins and cost for a room or wall." />
+    <meta name="twitter:image" content="https://paint-calculator.correia95.workers.dev/og.svg" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Paint Calculator",
+        "url": "https://paint-calculator.correia95.workers.dev/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "AUD" },
+        "description": "Estimate how many litres and tins of paint a room or wall needs, allowing for doors, windows, coats and coverage."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much paint do I need for a room?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Add up the wall area (the room's perimeter times the wall height), subtract doors and windows, multiply by the number of coats, and divide by the paint's coverage in square metres per litre. For a typical 4 by 3.5 metre room with 2.4 metre walls and two coats, that is roughly 5 to 6 litres."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many square metres does a litre of paint cover?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Around 13 to 16 square metres per litre per coat for interior wall paint on a smooth, previously painted surface. New plaster, render and textured or porous surfaces cover less, down to about 6 square metres per litre for bare brick."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I use one coat or two?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Two coats is standard for an even, durable finish. One coat can work when painting a very similar colour over a sound existing coat. Large colour changes, or light over dark, usually need a primer or an extra coat."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I subtract doors and windows?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For a tighter estimate, yes. A standard door is about 1.7 square metres and an average window about 1.4. Leaving them in gives you a built-in safety margin instead."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <noscript>
+      <p style="text-align: center; padding: 20px">
+        This paint calculator needs JavaScript. Enter a room's size or a wall area, subtract doors
+        and windows, choose the number of coats and the coverage rate, and it works out the litres,
+        tins and cost of paint.
+      </p>
+    </noscript>
+  </body>
+</html>

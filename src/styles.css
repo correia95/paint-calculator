@@ -28,6 +28,7 @@
 * { box-sizing: border-box; }
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -47,12 +48,13 @@ header h1 { font-size: clamp(1.5rem, 4.5vw, 2.1rem); margin: 0 0 6px; letter-spa
 .seg button.on { background: var(--card); color: var(--brand); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 
 .form h2 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); margin: 16px 0 8px; }
-.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 9px; }
+.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 9px; min-width: 0; }
 .field > span { font-size: 0.76rem; color: var(--ink-soft); font-weight: 600; }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.ibox { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 9px; background: var(--card-2); overflow: hidden; }
+.two > * { min-width: 0; }
+.ibox { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 9px; background: var(--card-2); overflow: hidden; min-width: 0; }
 .ibox:focus-within { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
-.ibox input { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 1rem; font-weight: 600; padding: 9px 8px; outline: none; }
+.ibox input { flex: 1; width: 100%; min-width: 0; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 1rem; font-weight: 600; padding: 9px 8px; outline: none; }
 .ibox i { font-style: normal; color: var(--ink-soft); padding: 0 9px; font-size: 0.85rem; border-left: 1px solid var(--line); }
 .check { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--ink-soft); margin: 4px 0 6px; }
 .check input { width: 16px; height: 16px; }

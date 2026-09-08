@@ -99,10 +99,39 @@ export function calculate(i: Inputs): Result {
   };
 }
 
-export const fmt1 = (n: number) => (Math.round(n * 10) / 10).toLocaleString('en-AU');
-export const fmt2 = (n: number) => (Math.round(n * 100) / 100).toLocaleString('en-AU', { minimumFractionDigits: 2 });
+export const fmt1 = (n: number) => (Math.round(n * 10) / 10).toLocaleString(undefined);
+export const fmt2 = (n: number) =>
+  (Math.round(n * 100) / 100).toLocaleString(undefined, { minimumFractionDigits: 2 });
+
+// The optional cost estimate is shown in the viewer's local currency.
+const REGION_CCY: Record<string, string> = {
+  AU: 'AUD', US: 'USD', GB: 'GBP', CA: 'CAD', NZ: 'NZD', IN: 'INR', SG: 'SGD',
+  ZA: 'ZAR', JP: 'JPY', IE: 'EUR', DE: 'EUR', FR: 'EUR', ES: 'EUR', IT: 'EUR',
+  NL: 'EUR', BE: 'EUR', AT: 'EUR', PT: 'EUR', FI: 'EUR',
+};
+function localCurrency(): string {
+  try {
+    const langs =
+      typeof navigator !== 'undefined' && navigator.languages?.length
+        ? navigator.languages
+        : ['en-AU'];
+    for (const l of langs) {
+      let region: string | undefined;
+      try {
+        region = new Intl.Locale(l).maximize().region;
+      } catch {
+        region = (l.split('-')[1] || '').toUpperCase() || undefined;
+      }
+      if (region && REGION_CCY[region]) return REGION_CCY[region];
+    }
+  } catch {
+    /* ignore */
+  }
+  return 'AUD';
+}
+const CCY = localCurrency();
 export const money = (n: number) =>
-  n.toLocaleString('en-AU', { style: 'currency', currency: 'AUD', maximumFractionDigits: 0 });
+  n.toLocaleString(undefined, { style: 'currency', currency: CCY, maximumFractionDigits: 0 });
 
 // Rough surface-specific coverage guidance (m² per litre, one coat).
 export const SURFACE_COVERAGE: { label: string; value: number; note: string }[] = [
